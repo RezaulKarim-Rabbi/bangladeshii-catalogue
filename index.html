@@ -59,6 +59,8 @@ a{color:var(--green)}
 .desc.expanded{display:block;-webkit-line-clamp:unset}
 .details-btn{align-self:flex-start;background:none;border:0;color:var(--green);font-weight:700;cursor:pointer;padding:0}
 .note{font-size:13px;color:var(--muted);margin:0}
+.fav-btn{align-self:flex-start;background:#fff;border:1px solid var(--green);color:var(--green);padding:6px 12px;border-radius:999px;cursor:pointer;font-weight:700}
+.fav-btn.on{background:var(--green);color:#fff}
 .buy{display:block;text-align:center;background:var(--green);color:#fff!important;text-decoration:none;padding:12px;border-radius:10px;margin-top:auto;font-weight:700}
 .buyhint{font-size:12px;color:var(--muted);margin:0}
 footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
@@ -89,8 +91,8 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 <main class="catalogue" id="catalogue">
 <h2>All products</h2>
 <div class="controls"><input id="search" type="search" placeholder="Search products… e.g. Netflix, Gemini, Spotify"><select id="sort"><option value="popular">Sort: Popular first</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="name">Name: A to Z</option></select><span id="count"></span></div>
-<div class="chips"><button class="chip active" data-filter="all">All products</button><button class="chip" data-filter="popular">🔥 Popular</button><button class="chip" data-filter="deals">💸 Deals</button><button class="chip" data-filter="YouTube Premium">⏯ YouTube Premium</button><button class="chip" data-filter="Muse AI">🎵 Muse AI</button><button class="chip" data-filter="Granola AI">🧐 Granola AI</button><button class="chip" data-filter="Figma">⭐️ Figma</button><button class="chip" data-filter="Miro">🔥 Miro</button><button class="chip" data-filter="Duolingo">😧 Duolingo</button><button class="chip" data-filter="Coursera">✅ Coursera</button><button class="chip" data-filter="Railway">🚝 Railway</button><button class="chip" data-filter="n8n">😄 n8n</button><button class="chip" data-filter="Factory">😗 Factory</button><button class="chip" data-filter="Lovable">👍 Lovable</button><button class="chip" data-filter="Wispr">😄 Wispr</button><button class="chip" data-filter="Amazon Prime">📱 Amazon Prime</button><button class="chip" data-filter="Gemini AI">📱 Gemini AI</button><button class="chip" data-filter="Hotmail">❤️ Hotmail</button><button class="chip" data-filter="Manus Pro">😊 Manus Pro</button><button class="chip" data-filter="Replit Core">✔️ Replit Core</button><button class="chip" data-filter="NORD VPN">📱 NORD VPN</button><button class="chip" data-filter="Linkedin">📱 Linkedin</button><button class="chip" data-filter="Capcut">📱 Capcut</button><button class="chip" data-filter="Notion">📱 Notion</button><button class="chip" data-filter="Outlook Mail">❤️ Outlook Mail</button><button class="chip" data-filter="Everything else">📦 Everything else</button></div>
-<div class="grid" id="grid"><article class="card" data-cat="Hotmail" data-featured="1" data-discount="0" data-price="10" data-name="hotmail mail trusted" data-search="Hotmail Mail Trusted Hotmail 💼 1 Account sold to 1 Person only
+<div class="chips"><button class="chip active" data-filter="all">All products</button><button class="chip" data-filter="popular">🔥 Popular</button><button class="chip" data-filter="deals">💸 Deals</button><button class="chip" data-filter="favs">♥ Favorites</button><button class="chip" data-filter="YouTube Premium">⏯ YouTube Premium</button><button class="chip" data-filter="Muse AI">🎵 Muse AI</button><button class="chip" data-filter="Granola AI">🧐 Granola AI</button><button class="chip" data-filter="Figma">⭐️ Figma</button><button class="chip" data-filter="Miro">🔥 Miro</button><button class="chip" data-filter="Duolingo">😧 Duolingo</button><button class="chip" data-filter="Coursera">✅ Coursera</button><button class="chip" data-filter="Railway">🚝 Railway</button><button class="chip" data-filter="n8n">😄 n8n</button><button class="chip" data-filter="Factory">😗 Factory</button><button class="chip" data-filter="Lovable">👍 Lovable</button><button class="chip" data-filter="Wispr">😄 Wispr</button><button class="chip" data-filter="Amazon Prime">📱 Amazon Prime</button><button class="chip" data-filter="Gemini AI">📱 Gemini AI</button><button class="chip" data-filter="Hotmail">❤️ Hotmail</button><button class="chip" data-filter="Manus Pro">😊 Manus Pro</button><button class="chip" data-filter="Replit Core">✔️ Replit Core</button><button class="chip" data-filter="Canva">✴️ Canva</button><button class="chip" data-filter="NORD VPN">📱 NORD VPN</button><button class="chip" data-filter="Linkedin">📱 Linkedin</button><button class="chip" data-filter="Capcut">📱 Capcut</button><button class="chip" data-filter="Notion">📱 Notion</button><button class="chip" data-filter="Outlook Mail">❤️ Outlook Mail</button><button class="chip" data-filter="Everything else">📦 Everything else</button></div>
+<div class="grid" id="grid"><article class="card" data-cat="Hotmail" data-pid="7021d4e30e6b478d92bb41b66c436f4a" data-featured="1" data-discount="0" data-price="10" data-name="hotmail mail trusted" data-search="Hotmail Mail Trusted Hotmail 💼 1 Account sold to 1 Person only
 
 ⚡️ Current Account Formats: 
       Format: Email | Pass | Refresh_token | Client_id
@@ -122,10 +124,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ✅ 24k+ Outlook Sold With 0 issue rate</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="7021d4e30e6b478d92bb41b66c436f4a">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_7021d4e30e6b478d92bb41b66c436f4a" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="8870" data-name="google ai pro 12m fw" data-search="Google AI Pro 12m FW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="77a2e2b698ab4663845d874751925147" data-featured="1" data-discount="0" data-price="8870" data-name="google ai pro 12m fw" data-search="Google AI Pro 12m FW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Time Warranty
 ⚡ On Your Account
@@ -143,10 +146,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚡ This offer activate on new account only</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="77a2e2b698ab4663845d874751925147">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_77a2e2b698ab4663845d874751925147" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="4440" data-name="posthog scale 12m fw" data-search="PostHog Scale 12m FW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="4eeff0464fbb460297bde577ef5a95d9" data-featured="1" data-discount="0" data-price="4440" data-name="posthog scale 12m fw" data-search="PostHog Scale 12m FW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Time Warranty
 ⚡ On Your Account">
@@ -162,10 +166,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚡ On Your Account</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="4eeff0464fbb460297bde577ef5a95d9">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_4eeff0464fbb460297bde577ef5a95d9" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="2070" data-name="mobbin 10x seat 12m nw" data-search="Mobbin 10x Seat 12m NW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="c00a22ba0593427a9365db0561e1fa02" data-featured="1" data-discount="0" data-price="2070" data-name="mobbin 10x seat 12m nw" data-search="Mobbin 10x Seat 12m NW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -187,10 +192,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="c00a22ba0593427a9365db0561e1fa02">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_c00a22ba0593427a9365db0561e1fa02" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Granola AI" data-featured="1" data-discount="0" data-price="2960" data-name="granola business nw" data-search="Granola Business NW Granola AI ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Granola AI" data-pid="eeecdf7053664a8eb2a54e3083ef27ee" data-featured="1" data-discount="0" data-price="2960" data-name="granola business nw" data-search="Granola Business NW Granola AI ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account">
@@ -206,10 +212,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚡ On Your Account</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="eeecdf7053664a8eb2a54e3083ef27ee">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_eeecdf7053664a8eb2a54e3083ef27ee" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="2070" data-name="warp build 12m nw" data-search="Warp Build 12m NW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="3104c768dda543cf9588c4b6733e452d" data-featured="1" data-discount="0" data-price="2070" data-name="warp build 12m nw" data-search="Warp Build 12m NW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -229,10 +236,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="3104c768dda543cf9588c4b6733e452d">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_3104c768dda543cf9588c4b6733e452d" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="890" data-name="supercut pro 10 seat 12m nw" data-search="Supercut Pro 10 Seat 12m NW Everything else ⚡  Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="dd88a21f85784298b1168d9e39585605" data-featured="1" data-discount="0" data-price="890" data-name="supercut pro 10 seat 12m nw" data-search="Supercut Pro 10 Seat 12m NW Everything else ⚡  Duration: 12 Month
 ⚡  Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡  On Your Account
@@ -252,10 +260,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️  Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="dd88a21f85784298b1168d9e39585605">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_dd88a21f85784298b1168d9e39585605" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Notion" data-featured="1" data-discount="0" data-price="440" data-name="notion business 3m nw" data-search="Notion Business 3m NW Notion ⚡ Plan: Business
+</article><article class="card" data-cat="Notion" data-pid="f0b199c56e0d4637806f61fb74240076" data-featured="1" data-discount="0" data-price="440" data-name="notion business 3m nw" data-search="Notion Business 3m NW Notion ⚡ Plan: Business
 ⚡ Duration: 3 Months
 ⚡ Credits: 300 Notion Credits per Month
 ⚡ Access: Activated on Your Own Account
@@ -268,7 +277,7 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
     <div class="cat">✍️ Notion</div>
     <h3>Notion Business 3m NW</h3>
     <div class="price-row"><span class="price">৳440</span></div>
-    <div class="meta"><span class="badge ">128 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">127 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">⚡ Plan: Business
 ⚡ Duration: 3 Months
 ⚡ Credits: 300 Notion Credits per Month
@@ -279,10 +288,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚡ Use the code within 24 hours</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="f0b199c56e0d4637806f61fb74240076">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_f0b199c56e0d4637806f61fb74240076" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="2960" data-name="magic patterns starter 12m nw" data-search="Magic Patterns Starter 12m NW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="f889c74771e14ca0b1cc195569000667" data-featured="1" data-discount="0" data-price="2960" data-name="magic patterns starter 12m nw" data-search="Magic Patterns Starter 12m NW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -302,10 +312,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="f889c74771e14ca0b1cc195569000667">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_f889c74771e14ca0b1cc195569000667" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="4440" data-name="linear business 12m nw" data-search="Linear Business 12m NW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="276ca66408ce4da9b0804fb6f8886d70" data-featured="1" data-discount="0" data-price="4440" data-name="linear business 12m nw" data-search="Linear Business 12m NW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -325,10 +336,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="276ca66408ce4da9b0804fb6f8886d70">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_276ca66408ce4da9b0804fb6f8886d70" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="5920" data-name="jam team 10 seat 12m fw" data-search="Jam Team 10 Seat 12m FW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="9e3dda42fc0248a19cde2032fb9f9f78" data-featured="1" data-discount="0" data-price="5920" data-name="jam team 10 seat 12m fw" data-search="Jam Team 10 Seat 12m FW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account
@@ -348,10 +360,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="9e3dda42fc0248a19cde2032fb9f9f78">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_9e3dda42fc0248a19cde2032fb9f9f78" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="1480" data-name="framer pro 12m nw" data-search="Framer Pro 12m NW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="00d1de87847a42969ce447b1615a3bcb" data-featured="1" data-discount="0" data-price="1480" data-name="framer pro 12m nw" data-search="Framer Pro 12m NW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -371,10 +384,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="00d1de87847a42969ce447b1615a3bcb">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_00d1de87847a42969ce447b1615a3bcb" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="1" data-discount="1" data-price="13650" data-name="lovable10k credits 7 dw" data-search="Lovable10k Credits 7 DW Lovable Warranty: 7 Days Warranty 
+</article><article class="card" data-cat="Lovable" data-pid="80765ccb82f54d2389a814c009211d05" data-featured="1" data-discount="1" data-price="13650" data-name="lovable10k credits 7 dw" data-search="Lovable10k Credits 7 DW Lovable Warranty: 7 Days Warranty 
 
 
 ⚡️ Lovable Pro 2 Month 10000 Credits
@@ -402,10 +416,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
     <p class="note">📝 🛡 Warranty:  7 Days Warranty 
 🏷 Product Type:  Ready Account
 🚚 Delivery Type:  Automatic</p>
+    <button class="fav-btn" type="button" data-fav="80765ccb82f54d2389a814c009211d05">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_80765ccb82f54d2389a814c009211d05" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Capcut" data-featured="1" data-discount="0" data-price="470" data-name="capcut pro 1m" data-search="CapCut Pro 1m Capcut ⚡ Genuine Pro Team Account — valid for 30 days
+</article><article class="card" data-cat="Capcut" data-pid="4eb495ad4d2d46ce8e3f4511688efa88" data-featured="1" data-discount="0" data-price="470" data-name="capcut pro 1m" data-search="CapCut Pro 1m Capcut ⚡ Genuine Pro Team Account — valid for 30 days
 ⚡ You may log in on up to 2 devices only (PC / Mobile).
 ⚡ Do not leave the assigned Space/Team, as this may result in losing Pro access.
 ⚡ Do not share the account with anyone else.
@@ -423,10 +438,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚡ Do not change the username/profile name, as it is required for account verification and warranty support.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="4eb495ad4d2d46ce8e3f4511688efa88">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_4eb495ad4d2d46ce8e3f4511688efa88" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="1" data-discount="1" data-price="9100" data-name="lovable 5k credits 7dw" data-search="Lovable 5k Credits 7DW Lovable Warranty: 7 Days Warranty 
+</article><article class="card" data-cat="Lovable" data-pid="e6253c85477947c4a246c4e4b31f387c" data-featured="1" data-discount="1" data-price="9100" data-name="lovable 5k credits 7dw" data-search="Lovable 5k Credits 7DW Lovable Warranty: 7 Days Warranty 
 
 ⚡️ Lovable Pro 2 Month 5000 Credits
  ⚡️ 5 daily credits Extra
@@ -454,10 +470,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
     <p class="note">🛡 Warranty:  7Days Warranty 
 🏷 Product Type:  Ready Account
 🚚 Delivery Type:  Automatic</p>
+    <button class="fav-btn" type="button" data-fav="e6253c85477947c4a246c4e4b31f387c">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_e6253c85477947c4a246c4e4b31f387c" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="1" data-discount="0" data-price="7390" data-name="resend pro 12m fw" data-search="Resend Pro 12m FW Everything else ⚡  Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="b6a157eeaeeb4ec5970f32a3bcefcb36" data-featured="1" data-discount="0" data-price="7390" data-name="resend pro 12m fw" data-search="Resend Pro 12m FW Everything else ⚡  Duration: 12 Month
 ⚡  Official Coupon Code
 ⚡ Full Warranty
 ⚡  On Your Account
@@ -477,10 +494,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="b6a157eeaeeb4ec5970f32a3bcefcb36">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_b6a157eeaeeb4ec5970f32a3bcefcb36" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Railway" data-featured="1" data-discount="0" data-price="2370" data-name="railway hobby 12m nw" data-search="Railway Hobby 12m NW Railway ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Railway" data-pid="518113a4e56c467db8d70ec0f9707b9a" data-featured="1" data-discount="0" data-price="2370" data-name="railway hobby 12m nw" data-search="Railway Hobby 12m NW Railway ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -500,10 +518,11 @@ footer{max-width:1100px;margin:0 auto;padding:20px;color:#555;line-height:1.6}
 ⚡ Use the code within 7 days</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="518113a4e56c467db8d70ec0f9707b9a">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_518113a4e56c467db8d70ec0f9707b9a" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="1" data-discount="1" data-price="4100" data-name="lovable pro 10k credits(nw)" data-search="Lovable Pro 10k Credits(NW) Lovable ──────────────
+</article><article class="card" data-cat="Lovable" data-pid="5276fcbfebac490ba9d5ca0a4177f456" data-featured="1" data-discount="1" data-price="4100" data-name="lovable pro 10k credits(nw)" data-search="Lovable Pro 10k Credits(NW) Lovable ──────────────
 Warranty: Login Warranty Only
 Duration: 48 Hours or more
 
@@ -539,10 +558,11 @@ Duration: 48 Hours or more
     <p class="note">🛡 Warranty:  No Warranty
 🏷 Product Type:  Ready Account
 🚚 Delivery Type:  Automatic</p>
+    <button class="fav-btn" type="button" data-fav="5276fcbfebac490ba9d5ca0a4177f456">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_5276fcbfebac490ba9d5ca0a4177f456" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Notion" data-featured="1" data-discount="0" data-price="4440" data-name="notion business 12m nw" data-search="Notion Business 12m NW Notion ⚡ Everything in Plus
+</article><article class="card" data-cat="Notion" data-pid="9ee72d5ded11480fba8e4f0b8d883d05" data-featured="1" data-discount="0" data-price="4440" data-name="notion business 12m nw" data-search="Notion Business 12m NW Notion ⚡ Everything in Plus
 ⚡ Notion Agent and many more
 ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
@@ -566,10 +586,11 @@ Duration: 48 Hours or more
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="9ee72d5ded11480fba8e4f0b8d883d05">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_9ee72d5ded11480fba8e4f0b8d883d05" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="n8n" data-featured="1" data-discount="0" data-price="3550" data-name="n8n starter 12m nw" data-search="N8N Starter 12m NW n8n ⚡ Duration: 12 Month
+</article><article class="card" data-cat="n8n" data-pid="8c1e58e80b8b4f1597ca6514f6a54d9e" data-featured="1" data-discount="0" data-price="3550" data-name="n8n starter 12m nw" data-search="N8N Starter 12m NW n8n ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -589,10 +610,11 @@ Duration: 48 Hours or more
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="8c1e58e80b8b4f1597ca6514f6a54d9e">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_8c1e58e80b8b4f1597ca6514f6a54d9e" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="1" data-discount="1" data-price="390" data-name="lovable pro 1m 100 credit nw" data-search="Lovable PRO 1M 100 Credit NW Lovable 🗓 Duration: 1 month
+</article><article class="card" data-cat="Lovable" data-pid="9cfeac3810c84a6184f1f7ef2731f0b3" data-featured="1" data-discount="1" data-price="390" data-name="lovable pro 1m 100 credit nw" data-search="Lovable PRO 1M 100 Credit NW Lovable 🗓 Duration: 1 month
 🛡 NON Warranty
 🔖 Type: Ready Account">
   <div class="imgwrap"><span class="deal-badge">-43%</span><span class="pop-badge">🔥 Popular</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-09-23/6702547d-c7fe-469c-b6c5-1dfd5df19699.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">👍</span><span class="noimg-name">Lovable PRO 1M 100 Credit NW</span></div></div>
@@ -600,7 +622,7 @@ Duration: 48 Hours or more
     <div class="cat">👍 Lovable</div>
     <h3>Lovable PRO 1M 100 Credit NW</h3>
     <div class="price-row"><span class="price">৳390</span><span class="old">৳680</span></div>
-    <div class="meta"><span class="badge ">145 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">143 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">🗓 Duration: 1 month
 🛡 NON Warranty
 🔖 Type: Ready Account</p>
@@ -608,10 +630,11 @@ Duration: 48 Hours or more
     <p class="note">✔️Lovable Pro 1 Month
 ✔️100 Credit+100 Credit Bonus
 ✔️Ready Made Account</p>
+    <button class="fav-btn" type="button" data-fav="9cfeac3810c84a6184f1f7ef2731f0b3">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_9cfeac3810c84a6184f1f7ef2731f0b3" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="1" data-discount="0" data-price="13310" data-name="lovable pro 12m fw" data-search="Lovable Pro 12m FW Lovable ⚡ Per Month 100 Credit
+</article><article class="card" data-cat="Lovable" data-pid="63abc71e955d4e1d9c49fd3ab45fb017" data-featured="1" data-discount="0" data-price="13310" data-name="lovable pro 12m fw" data-search="Lovable Pro 12m FW Lovable ⚡ Per Month 100 Credit
 ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
@@ -633,10 +656,11 @@ Duration: 48 Hours or more
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="63abc71e955d4e1d9c49fd3ab45fb017">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_63abc71e955d4e1d9c49fd3ab45fb017" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Replit Core" data-featured="1" data-discount="0" data-price="8280" data-name="replit core 12m nw" data-search="Replit Core 12m NW Replit Core ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Replit Core" data-pid="32f8d6f1eb6049e98299bb09248de71e" data-featured="1" data-discount="0" data-price="8280" data-name="replit core 12m nw" data-search="Replit Core 12m NW Replit Core ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account
@@ -656,10 +680,11 @@ Duration: 48 Hours or more
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="32f8d6f1eb6049e98299bb09248de71e">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_32f8d6f1eb6049e98299bb09248de71e" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Manus Pro" data-featured="1" data-discount="0" data-price="8870" data-name="manus pro 12m nw" data-search="Manus Pro 12m NW Manus Pro ⚡  Per Month 4000 Credit
+</article><article class="card" data-cat="Manus Pro" data-pid="ded2d7714fb644699b9c026385c38483" data-featured="1" data-discount="0" data-price="8870" data-name="manus pro 12m nw" data-search="Manus Pro 12m NW Manus Pro ⚡  Per Month 4000 Credit
 ⚡  Duration: 12 Month
 ⚡  Official Coupon Code
 🚫 No Warranty After Coupon Activation
@@ -681,10 +706,11 @@ Duration: 48 Hours or more
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="ded2d7714fb644699b9c026385c38483">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_ded2d7714fb644699b9c026385c38483" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="1" data-discount="1" data-price="1320" data-name="lovable pro lite 305 credit 12m" data-search="Lovable PRO Lite 305 Credit 12M Lovable 🎁 1 Year Access + 300 Bonus Credits Included  
+</article><article class="card" data-cat="Lovable" data-pid="1e41be77029a4e1aa6e3a7ae8c674cec" data-featured="1" data-discount="1" data-price="1320" data-name="lovable pro lite 305 credit 12m" data-search="Lovable PRO Lite 305 Credit 12M Lovable 🎁 1 Year Access + 300 Bonus Credits Included  
 
 📌 Full Pro Lite Access for 12 Months  
 ✨ All Pro Features Unlocked  
@@ -714,10 +740,11 @@ Duration: 48 Hours or more
 💝 This is an account not activation link</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">Only Per Account 1 lite</p>
+    <button class="fav-btn" type="button" data-fav="1e41be77029a4e1aa6e3a7ae8c674cec">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_1e41be77029a4e1aa6e3a7ae8c674cec" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Gemini AI" data-featured="0" data-discount="1" data-price="330" data-name="gemini ai pro 18m new" data-search="Gemini AI Pro 18m NEW Gemini AI ⚡ 18 Months Plan
+</article><article class="card" data-cat="Gemini AI" data-pid="fecc3d565eea4a59805b067cb801f8f4" data-featured="0" data-discount="1" data-price="330" data-name="gemini ai pro 18m new" data-search="Gemini AI Pro 18m NEW Gemini AI ⚡ 18 Months Plan
 ⚡ 5TB cloud storage included
 ⚡ You can add 5 users
 ⚡ No Shared
@@ -736,7 +763,7 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <div class="cat">📱 Gemini AI</div>
     <h3>Gemini AI Pro 18m NEW</h3>
     <div class="price-row"><span class="price">৳330</span><span class="old">৳410</span></div>
-    <div class="meta"><span class="badge ">19 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">18 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">⚡ 18 Months Plan
 ⚡ 5TB cloud storage included
 ⚡ You can add 5 users
@@ -753,10 +780,11 @@ Link Validity: Approximately 7 days from the date of purchase, subject to succes
 Important: The 7-day link validity is separate from the 24-hour warranty period.</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">⚡ Paste the received redeem link into your browser and click on “Activate Offer”. Your subscription/offer will then be activated successfully.</p>
+    <button class="fav-btn" type="button" data-fav="fecc3d565eea4a59805b067cb801f8f4">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_fecc3d565eea4a59805b067cb801f8f4" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="0" data-discount="1" data-price="1020" data-name="lovable lite 12m(link)" data-search="Lovable Lite 12m(LINK) Lovable 🖥 Full Lite Access for 12 Months
+</article><article class="card" data-cat="Lovable" data-pid="e21b81846e624a82ae81c0d743e1a639" data-featured="0" data-discount="1" data-price="1020" data-name="lovable lite 12m(link)" data-search="Lovable Lite 12m(LINK) Lovable 🖥 Full Lite Access for 12 Months
 © 5 daily credits (up to 150/month)
 © One-Time 300 Credits (Not Monthly) 
 🛡 1 Month Warranty
@@ -780,10 +808,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
 ⚡️ Remove the Lovable badge</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">Please use the code within two hours</p>
+    <button class="fav-btn" type="button" data-fav="e21b81846e624a82ae81c0d743e1a639">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_e21b81846e624a82ae81c0d743e1a639" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Muse AI" data-featured="0" data-discount="1" data-price="1820" data-name="muse ai 20b token" data-search="Muse AI 20B Token Muse AI 🤖 Muse AI — Ready-Made Account with 20B Token
+</article><article class="card" data-cat="Muse AI" data-pid="bcd2cfe181b342718b3add6f638e3198" data-featured="0" data-discount="1" data-price="1820" data-name="muse ai 20b token" data-search="Muse AI 20B Token Muse AI 🤖 Muse AI — Ready-Made Account with 20B Token
 ♾️ Never-Expiring Tokens — ready to use instantly.
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.">
   <div class="imgwrap"><span class="deal-badge">-60%</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-10-14/9859d182-b622-4fa8-ae40-73b09b89bcdf.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🎵</span><span class="noimg-name">Muse AI 20B Token</span></div></div>
@@ -799,10 +828,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <p class="note">📧 Full Mail Access Provided
 
 ⚠️ Warranty Till Login</p>
+    <button class="fav-btn" type="button" data-fav="bcd2cfe181b342718b3add6f638e3198">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_bcd2cfe181b342718b3add6f638e3198" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Muse AI" data-featured="0" data-discount="0" data-price="2730" data-name="muse ai 30b token" data-search="Muse AI 30B Token Muse AI 🤖 Muse AI — Ready-Made Account with 30B Token
+</article><article class="card" data-cat="Muse AI" data-pid="f1cbc72fd0434bc3b87a9f81160fe4b5" data-featured="0" data-discount="0" data-price="2730" data-name="muse ai 30b token" data-search="Muse AI 30B Token Muse AI 🤖 Muse AI — Ready-Made Account with 30B Token
 ♾️ Never-Expiring Tokens — ready to use instantly.
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.">
   <div class="imgwrap"><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-10-14/3c6d0eba-147a-4fd7-81a3-db8a035ee506.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🎵</span><span class="noimg-name">Muse AI 30B Token</span></div></div>
@@ -818,10 +848,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <p class="note">📧 Full Mail Access Provided
 
 ⚠️ Warranty Till Login</p>
+    <button class="fav-btn" type="button" data-fav="f1cbc72fd0434bc3b87a9f81160fe4b5">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_f1cbc72fd0434bc3b87a9f81160fe4b5" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Muse AI" data-featured="0" data-discount="1" data-price="1140" data-name="muse ai 5b token" data-search="Muse AI 5B Token Muse AI 🤖 Muse AI — Ready-Made Account with 5B Token
+</article><article class="card" data-cat="Muse AI" data-pid="5cf4d65169524cc3b3660b4156293f3f" data-featured="0" data-discount="1" data-price="1140" data-name="muse ai 5b token" data-search="Muse AI 5B Token Muse AI 🤖 Muse AI — Ready-Made Account with 5B Token
 ♾️ Never-Expiring Tokens — ready to use instantly.
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.">
   <div class="imgwrap"><span class="deal-badge">-37%</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-10-14/027fb303-14af-45af-9a79-a26955e49414.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🎵</span><span class="noimg-name">Muse AI 5B Token</span></div></div>
@@ -837,10 +868,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <p class="note">📧 Full Mail Access Provided
 
 ⚠️ Warranty Till Login</p>
+    <button class="fav-btn" type="button" data-fav="5cf4d65169524cc3b3660b4156293f3f">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_5cf4d65169524cc3b3660b4156293f3f" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Coursera" data-featured="0" data-discount="0" data-price="280" data-name="coursera premium 12 months" data-search="Coursera Premium 12 Months Coursera • Org+ Premium Access
+</article><article class="card" data-cat="Coursera" data-pid="8fc5532417bf43b78770e12414cf9e1a" data-featured="0" data-discount="0" data-price="280" data-name="coursera premium 12 months" data-search="Coursera Premium 12 Months Coursera • Org+ Premium Access
 • All Courses &amp; Certificates
 • Mail | Password | 2FA
 • Warranty 7 days
@@ -850,7 +882,7 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <div class="cat">✅ Coursera</div>
     <h3>Coursera Premium 12 Months</h3>
     <div class="price-row"><span class="price">৳280</span></div>
-    <div class="meta"><span class="badge ">80 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">76 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">• Org+ Premium Access
 • All Courses &amp; Certificates
 • Mail | Password | 2FA
@@ -858,10 +890,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
 • Use https://2fa.live/ for 2FA codes</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="8fc5532417bf43b78770e12414cf9e1a">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_8fc5532417bf43b78770e12414cf9e1a" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="0" data-discount="1" data-price="27300" data-name="lovable 20k credits 7 dw" data-search="Lovable 20k Credits 7 DW Lovable Warranty: 7 Days Warranty 
+</article><article class="card" data-cat="Lovable" data-pid="a49971a023304ead8d0e0c65df0f423f" data-featured="0" data-discount="1" data-price="27300" data-name="lovable 20k credits 7 dw" data-search="Lovable 20k Credits 7 DW Lovable Warranty: 7 Days Warranty 
 
 ⚡️ Lovable Pro 2 Month 20000 Credits
  ⚡️ 5 daily credits Extra
@@ -887,10 +920,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <p class="note">🛡 Warranty:  7 Days Warranty 
 🏷 Product Type:  Ready Account
 🚚 Delivery Type:  Automatic</p>
+    <button class="fav-btn" type="button" data-fav="a49971a023304ead8d0e0c65df0f423f">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_a49971a023304ead8d0e0c65df0f423f" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Lovable" data-featured="0" data-discount="1" data-price="6370" data-name="lovable 2k credits 7 dw" data-search="Lovable 2k Credits 7 DW Lovable Warranty: 7 Days Warranty 
+</article><article class="card" data-cat="Lovable" data-pid="1e9364fd9a824d87b80af5cbc65c4032" data-featured="0" data-discount="1" data-price="6370" data-name="lovable 2k credits 7 dw" data-search="Lovable 2k Credits 7 DW Lovable Warranty: 7 Days Warranty 
 
 ⚡️ Lovable Pro 2 Month 2000 Credits
  ⚡️ 5 daily credits Extra
@@ -916,10 +950,11 @@ Important: The 7-day link validity is separate from the 24-hour warranty period.
     <p class="note">🛡 Warranty:  7 Days Warranty 
 🏷 Product Type:  Ready Account
 🚚 Delivery Type:  Automatic</p>
+    <button class="fav-btn" type="button" data-fav="1e9364fd9a824d87b80af5cbc65c4032">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_1e9364fd9a824d87b80af5cbc65c4032" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Muse AI" data-featured="0" data-discount="0" data-price="110" data-name="muse ai account — 1 billion tokens" data-search="Muse AI Account — 1 Billion Tokens Muse AI 🎨 Muse AI Account — 1 Billion Tokens
+</article><article class="card" data-cat="Muse AI" data-pid="8adc2c1e59c74f55ab3c603d9da6b14b" data-featured="0" data-discount="0" data-price="110" data-name="muse ai account — 1 billion tokens" data-search="Muse AI Account — 1 Billion Tokens Muse AI 🎨 Muse AI Account — 1 Billion Tokens
 ⚡ Ready-made account with 1,000,000,000 AI tokens
 
 ✅ 1 billion Muse AI tokens
@@ -973,10 +1008,11 @@ A ready Muse AI account: the account email and the link to its mailbox, where th
 ✨ Start creating with 1 billion tokens right away.</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">No warranty — this product has no replacement after delivery.</p>
+    <button class="fav-btn" type="button" data-fav="8adc2c1e59c74f55ab3c603d9da6b14b">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_8adc2c1e59c74f55ab3c603d9da6b14b" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Granola AI" data-featured="0" data-discount="1" data-price="910" data-name="granola business nw" data-search="Granola Business NW Granola AI ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Granola AI" data-pid="5618756c0e364a478525fb757fab1d3a" data-featured="0" data-discount="1" data-price="910" data-name="granola business nw" data-search="Granola Business NW Granola AI ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 🚫 No Warranty After Coupon Activation
 ⚡ On Your Account">
@@ -992,10 +1028,11 @@ A ready Muse AI account: the account email and the link to its mailbox, where th
 ⚡ On Your Account</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="5618756c0e364a478525fb757fab1d3a">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_5618756c0e364a478525fb757fab1d3a" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Amazon Prime" data-featured="0" data-discount="0" data-price="300" data-name="amazon prime video 6m" data-search="Amazon Prime Video 6M Amazon Prime Enjoy Amazon Prime Video 6 Month Plan Private.
+</article><article class="card" data-cat="Amazon Prime" data-pid="b3ffa439487745cd861552a34415d359" data-featured="0" data-discount="0" data-price="300" data-name="amazon prime video 6m" data-search="Amazon Prime Video 6M Amazon Prime Enjoy Amazon Prime Video 6 Month Plan Private.
 Watch Your Favorite Movies and Serials Any Time Anywhere.
 Very Cheap Price.">
   <div class="imgwrap"><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-09-05/1872d4a6-5284-4335-be38-eff4b1ec7e36.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">📺</span><span class="noimg-name">Amazon Prime Video 6M</span></div></div>
@@ -1003,16 +1040,17 @@ Very Cheap Price.">
     <div class="cat">📺 Amazon Prime</div>
     <h3>Amazon Prime Video 6M</h3>
     <div class="price-row"><span class="price">৳300</span></div>
-    <div class="meta"><span class="badge low">Only 2 left!</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge low">Only 1 left!</span> <span>Instant delivery</span></div>
     <p class="desc">Enjoy Amazon Prime Video 6 Month Plan Private.
 Watch Your Favorite Movies and Serials Any Time Anywhere.
 Very Cheap Price.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="b3ffa439487745cd861552a34415d359">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_b3ffa439487745cd861552a34415d359" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="NORD VPN" data-featured="0" data-discount="0" data-price="550" data-name="nord vpn 3m nw" data-search="Nord VPN 3m NW NORD VPN 📆 Duration: 3 Month
+</article><article class="card" data-cat="NORD VPN" data-pid="53aec473e5fe451bb68abecb5895ec35" data-featured="0" data-discount="0" data-price="550" data-name="nord vpn 3m nw" data-search="Nord VPN 3m NW NORD VPN 📆 Duration: 3 Month
 🔗 Access: On Your Account
 ℹ️ Direct Redeem Link
 📱 Works On 10 Device
@@ -1030,10 +1068,11 @@ Very Cheap Price.</p>
 🛡 After Activation Non Warranty</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="53aec473e5fe451bb68abecb5895ec35">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_53aec473e5fe451bb68abecb5895ec35" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="NORD VPN" data-featured="0" data-discount="0" data-price="440" data-name="nord vpn 3m accounts" data-search="Nord VPN 3M Accounts NORD VPN ⚡️ High-speed VPN servers worldwide
+</article><article class="card" data-cat="NORD VPN" data-pid="338edbb5e32e40f4bfb42fcd43324846" data-featured="0" data-discount="0" data-price="440" data-name="nord vpn 3m accounts" data-search="Nord VPN 3M Accounts NORD VPN ⚡️ High-speed VPN servers worldwide
 🌍 Unlock global content &amp; streaming
 🔒 Strong encryption &amp; online privacy
 📱 Works on all major devices
@@ -1051,10 +1090,11 @@ Very Cheap Price.</p>
 ⏳ Premium access for 3 months</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="338edbb5e32e40f4bfb42fcd43324846">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_338edbb5e32e40f4bfb42fcd43324846" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Notion" data-featured="0" data-discount="0" data-price="270" data-name="notion business 3m coupon" data-search="Notion Business 3M Coupon Notion ⚡ Everything in Plus
+</article><article class="card" data-cat="Notion" data-pid="f273fd403de644898159a12472cc32f4" data-featured="0" data-discount="0" data-price="270" data-name="notion business 3m coupon" data-search="Notion Business 3M Coupon Notion ⚡ Everything in Plus
 ⚡ Notion Agent and many more
 ⚡ Official Coupon Code
 ⚡ On Your Account">
@@ -1070,10 +1110,11 @@ Very Cheap Price.</p>
 ⚡ On Your Account</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="f273fd403de644898159a12472cc32f4">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_f273fd403de644898159a12472cc32f4" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="80" data-name="adobe express 4 months trial" data-search="Adobe Express 4 Months Trial Everything else • No payment method required for activation
+</article><article class="card" data-cat="Everything else" data-pid="7b2a3ae2fe614191bc0995949db750e3" data-featured="0" data-discount="0" data-price="80" data-name="adobe express 4 months trial" data-search="Adobe Express 4 Months Trial Everything else • No payment method required for activation
 • Redeem page: https://redeem.adobe.com/
 • Trial - only works on accounts with no previous Adobe subscriptions
 • Full warranty after activation (4 months)
@@ -1091,10 +1132,11 @@ Very Cheap Price.</p>
 • Must be redeemed within 7 days of purchase</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="7b2a3ae2fe614191bc0995949db750e3">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_7b2a3ae2fe614191bc0995949db750e3" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Amazon Prime" data-featured="0" data-discount="0" data-price="180" data-name="amazon prime video 1m" data-search="Amazon Prime Video 1M Amazon Prime Enjoy Amazon Prime Video 1 Month Plan Private.
+</article><article class="card" data-cat="Amazon Prime" data-pid="b6721687efef4636954c09cb020f848c" data-featured="0" data-discount="0" data-price="180" data-name="amazon prime video 1m" data-search="Amazon Prime Video 1M Amazon Prime Enjoy Amazon Prime Video 1 Month Plan Private.
 Watch Your Favorite Movies and Serials Any Time Anywhere.
 Very Cheap Price.">
   <div class="imgwrap"><div class="noimg"><span class="noimg-emoji">📺</span><span class="noimg-name">Amazon Prime Video 1M</span></div></div>
@@ -1108,10 +1150,11 @@ Watch Your Favorite Movies and Serials Any Time Anywhere.
 Very Cheap Price.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="b6721687efef4636954c09cb020f848c">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_b6721687efef4636954c09cb020f848c" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="2370" data-name="autodesk admin panel 3000 invites 3 yr" data-search="Autodesk Admin Panel 3000 Invites 3 Yr Everything else Autodesk Admin Panel with up to 3,000 user invitations — 3 Years
+</article><article class="card" data-cat="Everything else" data-pid="87c9cd26e43e4fc2addfda92ccd81c54" data-featured="0" data-discount="0" data-price="2370" data-name="autodesk admin panel 3000 invites 3 yr" data-search="Autodesk Admin Panel 3000 Invites 3 Yr Everything else Autodesk Admin Panel with up to 3,000 user invitations — 3 Years
 📦 Format
 Gmail | Gmail Password | Gmail recovery
 🔐 Getting Started
@@ -1188,10 +1231,45 @@ Review your plan, license, and subscription information directly from your Autod
     <button class="details-btn" type="button">Show details</button>
     <p class="note">Please keep your account credentials secure and follow Autodesk&#x27;s current eligibility and usage requirements.
 For best security, update your account credentials after the first login.</p>
+    <button class="fav-btn" type="button" data-fav="87c9cd26e43e4fc2addfda92ccd81c54">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_87c9cd26e43e4fc2addfda92ccd81c54" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="4440" data-name="descript creator 12m nw" data-search="Descript Creator 12m NW Everything else ⚡ Official Coupon Code
+</article><article class="card" data-cat="Canva" data-pid="a6f74edf78114b1caac358f006c90f83" data-featured="0" data-discount="1" data-price="1000" data-name="canva pro edu panel 500 invites" data-search="Canva Pro Edu Panel 500 Invites Canva 🎨 Get Access to Canva Education with Advanced Tools! 🚀
+✨ Canva Education Features:
+• Get full 500 invites
+• Access to Canva Pro premium features
+• 3-Year Account
+Account Format is: CANVA &amp; Outlook EMAIL:PASS
+
+🛡 *Strict Warranty Policy:*
+🚫 *DO NOT* change the primary Canva Account Email.
+🚫 *DO NOT* modify Account Name, Team Name, or any Profile Info.
+⚠️ *Violating these rules will instantly void all replacement &amp; warranty support.*">
+  <div class="imgwrap"><span class="deal-badge">-37%</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-09-29/843dc0ff-5819-46c3-9d96-264943736769.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">📺</span><span class="noimg-name">Canva Pro Edu Panel 500 Invites</span></div></div>
+  <div class="card-body">
+    <div class="cat">📺 Canva</div>
+    <h3>Canva Pro Edu Panel 500 Invites</h3>
+    <div class="price-row"><span class="price">৳1,000</span><span class="old">৳1,590</span></div>
+    <div class="meta"><span class="badge ">20 in stock</span> <span>Instant delivery</span></div>
+    <p class="desc">🎨 Get Access to Canva Education with Advanced Tools! 🚀
+✨ Canva Education Features:
+• Get full 500 invites
+• Access to Canva Pro premium features
+• 3-Year Account
+Account Format is: CANVA &amp; Outlook EMAIL:PASS
+
+🛡 *Strict Warranty Policy:*
+🚫 *DO NOT* change the primary Canva Account Email.
+🚫 *DO NOT* modify Account Name, Team Name, or any Profile Info.
+⚠️ *Violating these rules will instantly void all replacement &amp; warranty support.*</p>
+    <button class="details-btn" type="button">Show details</button>
+    
+    <button class="fav-btn" type="button" data-fav="a6f74edf78114b1caac358f006c90f83">♡ Save</button>
+    <a class="buy" href="https://t.me/bangladeshii_bot?start=p_a6f74edf78114b1caac358f006c90f83" target="_blank" rel="noopener">Buy on Telegram</a>
+    <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
+  </div>
+</article><article class="card" data-cat="Everything else" data-pid="afb6db10a3414ae1979d7d27bdfaf08e" data-featured="0" data-discount="0" data-price="4440" data-name="descript creator 12m nw" data-search="Descript Creator 12m NW Everything else ⚡ Official Coupon Code
 ⚡ On Your Account
 ⚡ No Warranty After Activation
 ⚡ Need Card to Activate.">
@@ -1207,10 +1285,11 @@ For best security, update your account credentials after the first login.</p>
 ⚡ Need Card to Activate.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="afb6db10a3414ae1979d7d27bdfaf08e">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_afb6db10a3414ae1979d7d27bdfaf08e" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Duolingo" data-featured="0" data-discount="0" data-price="150" data-name="duolingo super 12 months" data-search="Duolingo Super 12 Months Duolingo • Redeem on your own account
+</article><article class="card" data-cat="Duolingo" data-pid="e078f9b37b084cabb75c8f3a19208771" data-featured="0" data-discount="0" data-price="150" data-name="duolingo super 12 months" data-search="Duolingo Super 12 Months Duolingo • Redeem on your own account
 • No payment method required for activation
 • Must be redeemed within 48 hours of purchase
 • Must be redeemed with India IP
@@ -1220,7 +1299,7 @@ For best security, update your account credentials after the first login.</p>
     <div class="cat">🦉 Duolingo</div>
     <h3>Duolingo Super 12 Months</h3>
     <div class="price-row"><span class="price">৳150</span></div>
-    <div class="meta"><span class="badge ">155 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">154 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">• Redeem on your own account
 • No payment method required for activation
 • Must be redeemed within 48 hours of purchase
@@ -1228,10 +1307,11 @@ For best security, update your account credentials after the first login.</p>
 • No Warranty After Activation</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="e078f9b37b084cabb75c8f3a19208771">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_e078f9b37b084cabb75c8f3a19208771" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="590" data-name="eleven reader ultra plan 12m" data-search="Eleven Reader Ultra Plan 12M Everything else The Ultra plan currently includes:
+</article><article class="card" data-cat="Everything else" data-pid="a3b10ec2f1c24687b87ec69f3d7595a0" data-featured="0" data-discount="0" data-price="590" data-name="eleven reader ultra plan 12m" data-search="Eleven Reader Ultra Plan 12M Everything else The Ultra plan currently includes:
 • ♾️ Unlimited text-to-audio — up to 24 hours/day for your own imported content
 
 • 🎧 200,000+ premium audiobooks &amp; eBooks
@@ -1287,10 +1367,11 @@ Get the full 12-Months Ultra Plan for just $2/Year! 🔥 ✅">
 Get the full 12-Months Ultra Plan for just $2/Year! 🔥 ✅</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="a3b10ec2f1c24687b87ec69f3d7595a0">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_a3b10ec2f1c24687b87ec69f3d7595a0" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Factory" data-featured="0" data-discount="0" data-price="17740" data-name="factory pro 12m fw" data-search="Factory Pro 12m FW Factory ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Factory" data-pid="5f37752783c74c1ba5300dd544ed211e" data-featured="0" data-discount="0" data-price="17740" data-name="factory pro 12m fw" data-search="Factory Pro 12m FW Factory ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account">
@@ -1306,10 +1387,11 @@ Get the full 12-Months Ultra Plan for just $2/Year! 🔥 ✅</p>
 ⚡ On Your Account</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="5f37752783c74c1ba5300dd544ed211e">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_5f37752783c74c1ba5300dd544ed211e" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Figma" data-featured="0" data-discount="0" data-price="1040" data-name="figma pro edu 2 yr" data-search="Figma Pro Edu 2 Yr Figma Figma Pro Education Plan for 2 years.
+</article><article class="card" data-cat="Figma" data-pid="558c4a3c4ea24f569d3395121622f799" data-featured="0" data-discount="0" data-price="1040" data-name="figma pro edu 2 yr" data-search="Figma Pro Edu 2 Yr Figma Figma Pro Education Plan for 2 years.
 Account format: email:password (Figma and Hotmail passwords are the same).
 The Make feature is now available in Opus 4.7.
 Get 3,000 credits per month.">
@@ -1325,10 +1407,11 @@ The Make feature is now available in Opus 4.7.
 Get 3,000 credits per month.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="558c4a3c4ea24f569d3395121622f799">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_558c4a3c4ea24f569d3395121622f799" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Gemini AI" data-featured="0" data-discount="0" data-price="320" data-name="gemini pro 18 months" data-search="Gemini Pro 18 Months Gemini AI • High quality, you can hold it
+</article><article class="card" data-cat="Gemini AI" data-pid="b049fd9d40a247ee89954ec6ad79b19a" data-featured="0" data-discount="0" data-price="320" data-name="gemini pro 18 months" data-search="Gemini Pro 18 Months Gemini AI • High quality, you can hold it
 • No payment method required for activation
 • 5TB cloud storage included
 • Must be redeemed within 24h of purchase">
@@ -1337,17 +1420,18 @@ Get 3,000 credits per month.</p>
     <div class="cat">📱 Gemini AI</div>
     <h3>Gemini Pro 18 Months</h3>
     <div class="price-row"><span class="price">৳320</span></div>
-    <div class="meta"><span class="badge ">1418 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">1000 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">• High quality, you can hold it
 • No payment method required for activation
 • 5TB cloud storage included
 • Must be redeemed within 24h of purchase</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="b049fd9d40a247ee89954ec6ad79b19a">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_b049fd9d40a247ee89954ec6ad79b19a" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Gemini AI" data-featured="0" data-discount="0" data-price="150" data-name="gemini pro 3 months" data-search="Gemini Pro 3 Months Gemini AI • Trial — only works on accounts with no previous/active plans
+</article><article class="card" data-cat="Gemini AI" data-pid="3cc2531864bf42a8966047aeec63bd77" data-featured="0" data-discount="0" data-price="150" data-name="gemini pro 3 months" data-search="Gemini Pro 3 Months Gemini AI • Trial — only works on accounts with no previous/active plans
 • 5TB cloud storage included
 • Payment method required for redeem
 • Warranty after activation 7 days
@@ -1357,7 +1441,7 @@ Get 3,000 credits per month.</p>
     <div class="cat">📱 Gemini AI</div>
     <h3>Gemini Pro 3 Months</h3>
     <div class="price-row"><span class="price">৳150</span></div>
-    <div class="meta"><span class="badge ">156 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">150 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">• Trial — only works on accounts with no previous/active plans
 • 5TB cloud storage included
 • Payment method required for redeem
@@ -1365,10 +1449,11 @@ Get 3,000 credits per month.</p>
 • Must be redeemed within 7 days of purchase</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="3cc2531864bf42a8966047aeec63bd77">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_3cc2531864bf42a8966047aeec63bd77" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="240" data-name="ilovepdf premium 1 yr" data-search="iLovePdf Premium 1 Yr Everything else 🛍 iLovePdf Premium 1Yr
+</article><article class="card" data-cat="Everything else" data-pid="7d53a48161294b39ac2c76e313b995d2" data-featured="0" data-discount="0" data-price="240" data-name="ilovepdf premium 1 yr" data-search="iLovePdf Premium 1 Yr Everything else 🛍 iLovePdf Premium 1Yr
 
 🔻 Full access to all iLovePDF tools
 🔻 Unlimited document processing
@@ -1400,10 +1485,11 @@ Delivery instructions:
 ⚡️Login to ILovePdf wesbite with email:pass given and change passowrd of account.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="7d53a48161294b39ac2c76e313b995d2">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_7d53a48161294b39ac2c76e313b995d2" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Manus Pro" data-featured="0" data-discount="0" data-price="14790" data-name="manus pro 12m fw" data-search="Manus Pro 12m FW Manus Pro ⚡  Per Month 4000 Credit
+</article><article class="card" data-cat="Manus Pro" data-pid="d59486fbfe984c8687998308ae614e94" data-featured="0" data-discount="0" data-price="14790" data-name="manus pro 12m fw" data-search="Manus Pro 12m FW Manus Pro ⚡  Per Month 4000 Credit
 ⚡  Duration: 12 Month
 ⚡  Official Coupon Code
 ⚡ Full Warranty
@@ -1425,10 +1511,11 @@ Delivery instructions:
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="d59486fbfe984c8687998308ae614e94">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_d59486fbfe984c8687998308ae614e94" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Miro" data-featured="0" data-discount="1" data-price="680" data-name="miro pro - 3m" data-search="Miro Pro - 3M Miro 🗓 Duration: 3 months
+</article><article class="card" data-cat="Miro" data-pid="0988033969014f9192d253d28f3f4ec4" data-featured="0" data-discount="1" data-price="680" data-name="miro pro - 3m" data-search="Miro Pro - 3M Miro 🗓 Duration: 3 months
 🛡 Warranty: not covered
 🔖 Type:Promo Code">
   <div class="imgwrap"><span class="deal-badge">-25%</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-10-01/06cc9944-cdd4-4d42-9a11-1ca39e89b5c9.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🔥</span><span class="noimg-name">Miro Pro - 3M</span></div></div>
@@ -1442,10 +1529,11 @@ Delivery instructions:
 🔖 Type:Promo Code</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="0988033969014f9192d253d28f3f4ec4">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_0988033969014f9192d253d28f3f4ec4" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Muse AI" data-featured="0" data-discount="1" data-price="800" data-name="muse ai 10b token" data-search="Muse AI 10B Token Muse AI 🤖 Muse AI — Ready-Made Account with 10B Token
+</article><article class="card" data-cat="Muse AI" data-pid="56bda5cdf45e4f5c93e439b00e27196d" data-featured="0" data-discount="1" data-price="800" data-name="muse ai 10b token" data-search="Muse AI 10B Token Muse AI 🤖 Muse AI — Ready-Made Account with 10B Token
 ♾️ Never-Expiring Tokens — ready to use instantly.
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.">
   <div class="imgwrap"><span class="deal-badge">-71%</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-10-13/67983bb1-96ea-4b18-b95d-7750229ccc15.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🎵</span><span class="noimg-name">Muse AI 10B Token</span></div></div>
@@ -1459,10 +1547,11 @@ Delivery instructions:
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="56bda5cdf45e4f5c93e439b00e27196d">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_56bda5cdf45e4f5c93e439b00e27196d" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Muse AI" data-featured="0" data-discount="1" data-price="570" data-name="muse ai 3b token" data-search="Muse AI 3B Token Muse AI 🤖 Muse AI — Ready-Made Account with 3B Token
+</article><article class="card" data-cat="Muse AI" data-pid="59b35f09e5734b3d94de3c6f8f2ac821" data-featured="0" data-discount="1" data-price="570" data-name="muse ai 3b token" data-search="Muse AI 3B Token Muse AI 🤖 Muse AI — Ready-Made Account with 3B Token
 ♾️ Never-Expiring Tokens — ready to use instantly.
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.">
   <div class="imgwrap"><span class="deal-badge">-50%</span><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-10-13/0b11638f-066f-4552-aba3-90cd434f1d86.webp" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🎵</span><span class="noimg-name">Muse AI 3B Token</span></div></div>
@@ -1476,10 +1565,11 @@ Delivery instructions:
 🚀 Create AI images, videos &amp; more with Muse AI’s powerful creative tools.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="59b35f09e5734b3d94de3c6f8f2ac821">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_59b35f09e5734b3d94de3c6f8f2ac821" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="n8n" data-featured="0" data-discount="0" data-price="6510" data-name="n8n starter 12m fw" data-search="n8n Starter 12m FW n8n ⚡ Duration: 12 Month
+</article><article class="card" data-cat="n8n" data-pid="e26ca87534f743ca85b36dffb20d2d06" data-featured="0" data-discount="0" data-price="6510" data-name="n8n starter 12m fw" data-search="n8n Starter 12m FW n8n ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account
@@ -1499,10 +1589,11 @@ Delivery instructions:
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="e26ca87534f743ca85b36dffb20d2d06">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_e26ca87534f743ca85b36dffb20d2d06" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Notion" data-featured="0" data-discount="0" data-price="5920" data-name="notion business 12m fw" data-search="Notion Business 12m FW Notion ⚡  Everything in Plus
+</article><article class="card" data-cat="Notion" data-pid="b5b4ea17ed94485499e1d718020d87d7" data-featured="0" data-discount="0" data-price="5920" data-name="notion business 12m fw" data-search="Notion Business 12m FW Notion ⚡  Everything in Plus
 ⚡  Notion Agent and many more
 ⚡  Duration: 12 Month
 ⚡  Official Coupon Code
@@ -1526,10 +1617,11 @@ Delivery instructions:
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="b5b4ea17ed94485499e1d718020d87d7">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_b5b4ea17ed94485499e1d718020d87d7" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Notion" data-featured="0" data-discount="0" data-price="240" data-name="notion business 3 months" data-search="Notion Business 3 Months Notion • Payment method required for activation
+</article><article class="card" data-cat="Notion" data-pid="c06f6d7518564670adf0e552eab4fd96" data-featured="0" data-discount="0" data-price="240" data-name="notion business 3 months" data-search="Notion Business 3 Months Notion • Payment method required for activation
 • 300 Notion Credits per Month
 • Must be redeemed within 48 hours of purchase
 • No warranty after activation">
@@ -1545,10 +1637,11 @@ Delivery instructions:
 • No warranty after activation</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="c06f6d7518564670adf0e552eab4fd96">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_c06f6d7518564670adf0e552eab4fd96" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Outlook Mail" data-featured="0" data-discount="0" data-price="10" data-name="outlook mail trusted" data-search="Outlook Mail Trusted Outlook Mail 💼 1 Account sold to 1 Person only
+</article><article class="card" data-cat="Outlook Mail" data-pid="051b3efb702e436689a7102df797cb57" data-featured="0" data-discount="0" data-price="10" data-name="outlook mail trusted" data-search="Outlook Mail Trusted Outlook Mail 💼 1 Account sold to 1 Person only
 
 ⚡️ Current Account Formats: 
       Format: Email | Pass | Refresh_token | Client_id
@@ -1580,10 +1673,11 @@ Delivery instructions:
 ✅ 24k+ Outlook Sold With 0 issue rate</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="051b3efb702e436689a7102df797cb57">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_051b3efb702e436689a7102df797cb57" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="2370" data-name="pangram pro 12m nw" data-search="Pangram Pro 12m NW Everything else ⚡ Official Coupon Code
+</article><article class="card" data-cat="Everything else" data-pid="35ea2c23e1f940d78a8e874d5fe3a3cb" data-featured="0" data-discount="0" data-price="2370" data-name="pangram pro 12m nw" data-search="Pangram Pro 12m NW Everything else ⚡ Official Coupon Code
 ⚡ On Your Account
 ⚡ No Warranty After Activation
 ⚡ Plan: Professional
@@ -1603,10 +1697,11 @@ Delivery instructions:
 ⚡ Need Card to Activate.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="35ea2c23e1f940d78a8e874d5fe3a3cb">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_35ea2c23e1f940d78a8e874d5fe3a3cb" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Railway" data-featured="0" data-discount="0" data-price="2960" data-name="railway hobby 12m fw" data-search="Railway Hobby 12m FW Railway ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Railway" data-pid="edc57788ebb04bc591c65be514d51c33" data-featured="0" data-discount="0" data-price="2960" data-name="railway hobby 12m fw" data-search="Railway Hobby 12m FW Railway ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account
@@ -1626,10 +1721,11 @@ Delivery instructions:
 ⚡ Use the code within 7 days</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="edc57788ebb04bc591c65be514d51c33">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_edc57788ebb04bc591c65be514d51c33" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Replit Core" data-featured="0" data-discount="0" data-price="11830" data-name="replit core 12m fw" data-search="Replit Core 12m FW Replit Core ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Replit Core" data-pid="4a4a0d9e8052433aac1a4fbb7e9722bb" data-featured="0" data-discount="0" data-price="11830" data-name="replit core 12m fw" data-search="Replit Core 12m FW Replit Core ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account
@@ -1649,10 +1745,11 @@ Delivery instructions:
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="4a4a0d9e8052433aac1a4fbb7e9722bb">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_4a4a0d9e8052433aac1a4fbb7e9722bb" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="380" data-name="surfshark 2 month coupons" data-search="Surfshark 2 month Coupons Everything else • 💻 Works on mobile, PC, and smart devices
+</article><article class="card" data-cat="Everything else" data-pid="74d09571beab4549b55f96da7990b6d2" data-featured="0" data-discount="0" data-price="380" data-name="surfshark 2 month coupons" data-search="Surfshark 2 month Coupons Everything else • 💻 Works on mobile, PC, and smart devices
 • 💻 Login to Unlimited Devices
 
 📄 Terms &amp; Conditions
@@ -1684,10 +1781,39 @@ Strict Note:
 Don&#x27;t Text Me asking how will i activate it. I have Already Explained the procedure. If you get an error trial not available, then thats an issue with your Card not the coupon. Try other cards.</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">If you are not fully sure you can complete the checkout successfully, please DO NOT BUY. NO REFUNDS. ⚠️</p>
+    <button class="fav-btn" type="button" data-fav="74d09571beab4549b55f96da7990b6d2">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_74d09571beab4549b55f96da7990b6d2" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="330" data-name="udemy personal plan 1m" data-search="Udemy Personal Plan 1M Everything else 🎓 Udemy Personal Plan 1 Month🎓
+</article><article class="card" data-cat="NORD VPN" data-pid="41935dc315f54929ba199b9021c1caaa" data-featured="0" data-discount="0" data-price="880" data-name="surfshark vpn 2m private accounts" data-search="Surfshark VPN 2M Private Accounts NORD VPN Strict Note:
+Kindly Change the Credentials withhin 30 Mins of Buying, we won&#x27;t be held responsible after that time in this regard. Thanks
+
+🛡 Surfshark 2-Month Plan Ready Accounts
+⚡️ Fast &amp; secure VPN access
+🌍 Unlock global content &amp; streaming
+🔒 Private browsing with strong encryption
+📱 Use On a Maximum of 10 Devices or Your Account can be Suspended.">
+  <div class="imgwrap"><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-09-05/2cf74d31-27b2-4930-aa22-5c9e91dbb36c.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">😮</span><span class="noimg-name">Surfshark VPN 2M Private Accounts</span></div></div>
+  <div class="card-body">
+    <div class="cat">😮 NORD VPN</div>
+    <h3>Surfshark VPN 2M Private Accounts</h3>
+    <div class="price-row"><span class="price">৳880</span></div>
+    <div class="meta"><span class="badge ">6 in stock</span> <span>Instant delivery</span></div>
+    <p class="desc">Strict Note:
+Kindly Change the Credentials withhin 30 Mins of Buying, we won&#x27;t be held responsible after that time in this regard. Thanks
+
+🛡 Surfshark 2-Month Plan Ready Accounts
+⚡️ Fast &amp; secure VPN access
+🌍 Unlock global content &amp; streaming
+🔒 Private browsing with strong encryption
+📱 Use On a Maximum of 10 Devices or Your Account can be Suspended.</p>
+    <button class="details-btn" type="button">Show details</button>
+    
+    <button class="fav-btn" type="button" data-fav="41935dc315f54929ba199b9021c1caaa">♡ Save</button>
+    <a class="buy" href="https://t.me/bangladeshii_bot?start=p_41935dc315f54929ba199b9021c1caaa" target="_blank" rel="noopener">Buy on Telegram</a>
+    <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
+  </div>
+</article><article class="card" data-cat="Everything else" data-pid="4793a1dda0a947a6a9a33fbc9785b64a" data-featured="0" data-discount="0" data-price="330" data-name="udemy personal plan 1m" data-search="Udemy Personal Plan 1M Everything else 🎓 Udemy Personal Plan 1 Month🎓
 📩 Full Mail Access
 📚 Access to Almost All Udemy Courses">
   <div class="imgwrap"><div class="noimg"><span class="noimg-emoji">🎓</span><span class="noimg-name">Udemy Personal Plan 1M</span></div></div>
@@ -1695,16 +1821,17 @@ Don&#x27;t Text Me asking how will i activate it. I have Already Explained the p
     <div class="cat">🎓 Everything else</div>
     <h3>Udemy Personal Plan 1M</h3>
     <div class="price-row"><span class="price">৳330</span></div>
-    <div class="meta"><span class="badge low">Only 5 left!</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge low">Only 4 left!</span> <span>Instant delivery</span></div>
     <p class="desc">🎓 Udemy Personal Plan 1 Month🎓
 📩 Full Mail Access
 📚 Access to Almost All Udemy Courses</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="4793a1dda0a947a6a9a33fbc9785b64a">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_4793a1dda0a947a6a9a33fbc9785b64a" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="2960" data-name="warp build 12m fw" data-search="Warp Build 12m FW Everything else ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Everything else" data-pid="1d5cb3b663094227bf91c55b1cf81da7" data-featured="0" data-discount="0" data-price="2960" data-name="warp build 12m fw" data-search="Warp Build 12m FW Everything else ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account
@@ -1724,10 +1851,11 @@ Don&#x27;t Text Me asking how will i activate it. I have Already Explained the p
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="1d5cb3b663094227bf91c55b1cf81da7">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_1d5cb3b663094227bf91c55b1cf81da7" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Wispr" data-featured="0" data-discount="0" data-price="5920" data-name="wispr flow 12m fw" data-search="Wispr Flow 12m FW Wispr ⚡ Duration: 12 Month
+</article><article class="card" data-cat="Wispr" data-pid="5d2d85b7c7e14b90a7c2c507b63fa478" data-featured="0" data-discount="0" data-price="5920" data-name="wispr flow 12m fw" data-search="Wispr Flow 12m FW Wispr ⚡ Duration: 12 Month
 ⚡ Official Coupon Code
 ⚡ Full Warranty
 ⚡ On Your Account
@@ -1747,10 +1875,11 @@ Don&#x27;t Text Me asking how will i activate it. I have Already Explained the p
 ⚠️ Please note that the code must be redeemed within 7 days of purchase. Codes that are not used within this period may expire and may no longer be eligible for support or replacement.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="5d2d85b7c7e14b90a7c2c507b63fa478">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_5d2d85b7c7e14b90a7c2c507b63fa478" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="YouTube Premium" data-featured="0" data-discount="0" data-price="460" data-name="youtube premium 3 months" data-search="YouTube Premium 3 Months YouTube Premium • Payment method required for activation
+</article><article class="card" data-cat="YouTube Premium" data-pid="507ca4d89f5f4aa48647c35eaca4d282" data-featured="0" data-discount="0" data-price="460" data-name="youtube premium 3 months" data-search="YouTube Premium 3 Months YouTube Premium • Payment method required for activation
 • Redeem page: https://www.youtube.com/redeem
 • Trial — only works on accounts with no previous/active plans
 • Full warranty after activation (3 months)
@@ -1763,7 +1892,7 @@ ZA; BR; TR; US; SE; AU; DE; GB; ES; CH; HK">
     <div class="cat">📱 YouTube Premium</div>
     <h3>YouTube Premium 3 Months</h3>
     <div class="price-row"><span class="price">৳460</span></div>
-    <div class="meta"><span class="badge ">68 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">65 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">• Payment method required for activation
 • Redeem page: https://www.youtube.com/redeem
 • Trial — only works on accounts with no previous/active plans
@@ -1774,10 +1903,11 @@ PL; IN; BE; AR; ID; CA; DK; IT; MX; FR; AE; NL;
 ZA; BR; TR; US; SE; AU; DE; GB; ES; CH; HK</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="507ca4d89f5f4aa48647c35eaca4d282">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_507ca4d89f5f4aa48647c35eaca4d282" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="130" data-name="adobe express premium 12m coupons" data-search="Adobe Express Premium 12M Coupons Everything else ✅ Adobe account required (new or existing).
+</article><article class="card" data-cat="Everything else" data-pid="d222a40bd83e4ce3adb813f228131980" data-featured="0" data-discount="0" data-price="130" data-name="adobe express premium 12m coupons" data-search="Adobe Express Premium 12M Coupons Everything else ✅ Adobe account required (new or existing).
 
 ✅ No payment method required.
 
@@ -1799,10 +1929,11 @@ ZA; BR; TR; US; SE; AU; DE; GB; ES; CH; HK</p>
 ⚠️ If you encounter a region restriction or region mismatch error, connect to an Indian VPN and try again</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">If you encounter a region restriction or region mismatch error, connect to an Indian VPN and try again</p>
+    <button class="fav-btn" type="button" data-fav="d222a40bd83e4ce3adb813f228131980">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_d222a40bd83e4ce3adb813f228131980" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Linkedin" data-featured="0" data-discount="0" data-price="210" data-name="linkedin career 3m" data-search="LINKEDIN CAREER 3M Linkedin ✅ 3 Months Premium Access
+</article><article class="card" data-cat="Linkedin" data-pid="814bb607ee6a46a3a7637add1fdbe36f" data-featured="0" data-discount="0" data-price="210" data-name="linkedin career 3m" data-search="LINKEDIN CAREER 3M Linkedin ✅ 3 Months Premium Access
 🔗 Premium Activation Link
 💳 Autopay setup required using any available payment method
 🌍 Used in India Only
@@ -1840,25 +1971,27 @@ ZA; BR; TR; US; SE; AU; DE; GB; ES; CH; HK</p>
 🛡 Replacement if invalid ( redeem link as soon as possible)</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="814bb607ee6a46a3a7637add1fdbe36f">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_814bb607ee6a46a3a7637add1fdbe36f" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Capcut" data-featured="0" data-discount="0" data-price="430" data-name="capcut team 1m 1200 credits" data-search="Capcut Team 1M 1200 credits Capcut │ 🔐 Login Limit: 1 mobile📱 + 1 laptop 💻 only.
+</article><article class="card" data-cat="Capcut" data-pid="0b73217d2bbe4ed8834e7840efb31bef" data-featured="0" data-discount="0" data-price="430" data-name="capcut team 1m 1200 credits" data-search="Capcut Team 1M 1200 credits Capcut │ 🔐 Login Limit: 1 mobile📱 + 1 laptop 💻 only.
 │ ⚠️ No warranty or support if login restrictions or Maximum Limit issue occur due to excessive device logins or wrong login tries.">
   <div class="imgwrap"><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-09-05/20dcd7d6-ba10-4356-bee7-c3fe5d661723.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">🖤</span><span class="noimg-name">Capcut Team 1M 1200 credits</span></div></div>
   <div class="card-body">
     <div class="cat">🖤 Capcut</div>
     <h3>Capcut Team 1M 1200 credits</h3>
     <div class="price-row"><span class="price">৳430</span></div>
-    <div class="meta"><span class="badge ">19 in stock</span> <span>Instant delivery</span></div>
+    <div class="meta"><span class="badge ">18 in stock</span> <span>Instant delivery</span></div>
     <p class="desc">│ 🔐 Login Limit: 1 mobile📱 + 1 laptop 💻 only.
 │ ⚠️ No warranty or support if login restrictions or Maximum Limit issue occur due to excessive device logins or wrong login tries.</p>
     <button class="details-btn" type="button">Show details</button>
     
+    <button class="fav-btn" type="button" data-fav="0b73217d2bbe4ed8834e7840efb31bef">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_0b73217d2bbe4ed8834e7840efb31bef" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
-</article><article class="card" data-cat="Everything else" data-featured="0" data-discount="0" data-price="1860" data-name="meitu vip+ 90d full warranty" data-search="Meitu Vip+ 90D full warranty Everything else Unlock full VIP Filter library, AI tools, object removal, export HD/4K files without watermark.">
+</article><article class="card" data-cat="Everything else" data-pid="a9022e2d488c43319a52074507054f05" data-featured="0" data-discount="0" data-price="1860" data-name="meitu vip+ 90d full warranty" data-search="Meitu Vip+ 90D full warranty Everything else Unlock full VIP Filter library, AI tools, object removal, export HD/4K files without watermark.">
   <div class="imgwrap"><img src="https://zohumyfxfhyzwjzxjdzi.supabase.co/storage/v1/object/public/public-images/2026-09-06/e08231e3-4812-4e9d-b714-d47ada363c4c.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="noimg" style="display:none"><span class="noimg-emoji">👍</span><span class="noimg-name">Meitu Vip+ 90D full warranty</span></div></div>
   <div class="card-body">
     <div class="cat">👍 Everything else</div>
@@ -1869,6 +2002,7 @@ ZA; BR; TR; US; SE; AU; DE; GB; ES; CH; HK</p>
     <button class="details-btn" type="button">Show details</button>
     <p class="note">Log in within the day; logging in on a new day will void the warranty.
 Use on one device, do not log out, do not share the account. Violation will void the warranty.</p>
+    <button class="fav-btn" type="button" data-fav="a9022e2d488c43319a52074507054f05">♡ Save</button>
     <a class="buy" href="https://t.me/bangladeshii_bot?start=p_a9022e2d488c43319a52074507054f05" target="_blank" rel="noopener">Buy on Telegram</a>
     <p class="buyhint">Opens @bangladeshii_bot directly on this product — pay bKash, Nagad or Upay, send your TrxID.</p>
   </div>
@@ -1876,7 +2010,7 @@ Use on one device, do not log out, do not share the account. Violation will void
 <p id="empty" style="display:none">No products match that search. Try another name, or open the bot and use /search there.</p>
 </main>
 <footer>
-<p>Catalogue refreshed 25 Oct 2026, 01:44 AM Asia/Dhaka — 70 products in stock, 25 marked Popular, 15 on deal. Prices and stock can change; the bot shows live stock at order time.</p>
+<p>Catalogue refreshed 25 Oct 2026, 02:04 AM Asia/Dhaka — 72 products in stock, 25 marked Popular, 16 on deal. Prices and stock can change; the bot shows live stock at order time.</p>
 <p>Orders are completed in @bangladeshii_bot only. This website takes no payment and stores no card or payment details.</p>
 </footer>
 <script>
@@ -1884,10 +2018,16 @@ const q=document.getElementById('search'), grid=document.getElementById('grid'),
 count=document.getElementById('count'), empty=document.getElementById('empty');
 let filter='all';
 const cards=[...grid.children];
+// Favorites live only in this browser (localStorage) — the static site has
+// no accounts and no server, so nothing about a visitor is sent anywhere.
+const favKey='bangladeshii_favs';
+let favs=new Set(JSON.parse(localStorage.getItem(favKey)||'[]'));
+function paintFavs(){document.querySelectorAll('.fav-btn').forEach(b=>{const on=favs.has(b.dataset.fav); b.textContent=on?'♥ Saved':'♡ Save'; b.classList.toggle('on',on);});}
+paintFavs();
 function apply(){
   const term=q.value.trim().toLowerCase();
   let visible=cards.filter(c=>{
-    const okCat = filter==='all' || (filter==='popular' ? c.dataset.featured==='1' : filter==='deals' ? c.dataset.discount==='1' : c.dataset.cat===filter);
+    const okCat = filter==='all' || (filter==='popular' ? c.dataset.featured==='1' : filter==='deals' ? c.dataset.discount==='1' : filter==='favs' ? favs.has(c.dataset.pid) : c.dataset.cat===filter);
     const okTerm = !term || c.dataset.search.toLowerCase().includes(term);
     return okCat && okTerm;
   });
@@ -1901,6 +2041,7 @@ function apply(){
   cards.forEach(c=>c.style.display='none');
   visible.forEach(c=>{c.style.display=''; grid.appendChild(c);});
   count.textContent = visible.length + ' products shown';
+  empty.textContent = filter==='favs' ? 'No favorites yet — tap ♡ Save on any product.' : 'No products match that search. Try another name, or open the bot and use /search there.';
   empty.style.display = visible.length ? 'none' : '';
 }
 document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
@@ -1909,6 +2050,8 @@ document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
 }));
 q.addEventListener('input', apply); sortSel.addEventListener('change', apply);
 grid.addEventListener('click', e=>{
+  const fav=e.target.closest('.fav-btn');
+  if(fav){ const id=fav.dataset.fav; favs.has(id)?favs.delete(id):favs.add(id); localStorage.setItem(favKey, JSON.stringify([...favs])); paintFavs(); if(filter==='favs') apply(); return; }
   const btn=e.target.closest('.details-btn'); if(!btn) return;
   const desc=btn.parentElement.querySelector('.desc');
   const open=desc.classList.toggle('expanded');
